@@ -4,7 +4,6 @@ This project aims to improve the contacts management between PTU and Live websit
 
 Current features include:
 * Automatically add contacts between environments
-* Cross-browser sync
 * Support for alt accounts
 
 # Google Chrome Extension

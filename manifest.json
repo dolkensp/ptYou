@@ -3,11 +3,11 @@
   "manifest_version": 2,
   "name": "ptYou - Star Citizen Contact Manager",
   "short_name": "ptYou",
-  "version": "0.01",
+  "version": "0.02",
   
   "author": "/u/alluran (Peter Dolkens)",
   
-  "permissions": [ "https://robertsspaceindustries.com/*", "https://*.cloudimperiumgames.com/*", "storage" ],
+  "permissions": [ "https://robertsspaceindustries.com/*", "https://*.cloudimperiumgames.com/*", "storage", "unlimitedStorage" ],
   
   "icons": {
     "48": "icons/icon_48.png",

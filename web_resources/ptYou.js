@@ -13,9 +13,9 @@ ptYou.Initialize = function()
   ptYou.headers['X-' + window.RSI.Api.TOKEN_NAME] = $.cookie(window.RSI.Api.TOKEN_NAME);
   ptYou.handle = $('.handle').first().text();
   
-  // chrome.storage.sync.clear();
+  // chrome.storage.local.clear();
   
-  chrome.storage.sync.get(null, function(global) {
+  chrome.storage.local.get(null, function(global) {
     global = global || {};
     global[ptYou.handle] = global[ptYou.handle] || {};
     global[ptYou.handle].friends = global[ptYou.handle].friends || [];
@@ -139,7 +139,7 @@ ptYou.FriendAdd = function(newFriends, data)
 {
   if (newFriends.length == 0)
   {
-    chrome.storage.sync.set(data);
+    chrome.storage.local.set(data);
   }
   else
   {
