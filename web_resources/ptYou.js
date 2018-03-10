@@ -11,7 +11,7 @@ ptYou.Initialize = function()
   
   ptYou.headers = {};
   ptYou.headers['X-' + window.RSI.Api.TOKEN_NAME] = $.cookie(window.RSI.Api.TOKEN_NAME);
-  ptYou.handle = $('.handle').first().text();
+  ptYou.handle = $('.c-account-sidebar__profile-info-handle').first().text();
   
   // chrome.storage.local.clear();
   
