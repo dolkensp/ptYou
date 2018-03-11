@@ -9,9 +9,16 @@ ptYou.Initialize = function()
   var hour = 60 * minute;
   var day = 24 * hour;
   
+  if (window.jQuery == undefined) return;
+  if (window.RSI == undefined) return;
+  if (window.RSI.Api == undefined) return;
+  if (window.RSI.Api.TOKEN_NAME == undefined) return;
+  
   ptYou.headers = {};
   ptYou.headers['X-' + window.RSI.Api.TOKEN_NAME] = $.cookie(window.RSI.Api.TOKEN_NAME);
   ptYou.handle = $('.c-account-sidebar__profile-info-handle').first().text();
+  
+  if (ptYou.handle == "") return;
   
   // chrome.storage.local.clear();
   
