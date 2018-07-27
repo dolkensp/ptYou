@@ -67,14 +67,14 @@ ptYou.FriendDiff = function(localFriends, globalFriends)
   var lookup = {};
   var missingFriends = [];
   
-  var i, j;
+  var i, j, friend;
   
   localFriends = localFriends || [];
   globalFriends = globalFriends || [];
   
   for (i = 0, j = localFriends.length; i < j; i++)
   {
-    var friend = localFriends[i];
+    friend = localFriends[i];
     if (lookup[friend] != true)
     {
       lookup[friend] = true;
@@ -83,7 +83,7 @@ ptYou.FriendDiff = function(localFriends, globalFriends)
   
   for (i = 0, j = globalFriends.length; i < j; i++)
   {
-    var friend = globalFriends[i];
+    friend = globalFriends[i];
     if (lookup[friend] != true)
     {
       lookup[friend] = true;
