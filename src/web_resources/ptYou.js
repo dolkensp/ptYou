@@ -67,10 +67,12 @@ ptYou.FriendDiff = function(localFriends, globalFriends)
   var lookup = {};
   var missingFriends = [];
   
+  var i, j;
+  
   localFriends = localFriends || [];
   globalFriends = globalFriends || [];
   
-  for (var i = 0, j = localFriends.length; i < j; i++)
+  for (i = 0, j = localFriends.length; i < j; i++)
   {
     var friend = localFriends[i];
     if (lookup[friend] != true)
@@ -79,7 +81,7 @@ ptYou.FriendDiff = function(localFriends, globalFriends)
     }
   }
   
-  for (var i = 0, j = globalFriends.length; i < j; i++)
+  for (i = 0, j = globalFriends.length; i < j; i++)
   {
     var friend = globalFriends[i];
     if (lookup[friend] != true)
@@ -97,14 +99,14 @@ ptYou.FriendMerge = function(localFriends, globalFriends)
   var lookup = {};
   var allFriends = [];
   
+  var i, j, friend;
+  
   localFriends = localFriends || [];
   globalFriends = globalFriends || [];
   
-  var allFriends = [];
-  
-  for (var i = 0, j = localFriends.length; i < j; i++)
+  for (i = 0, j = localFriends.length; i < j; i++)
   {
-    var friend = localFriends[i];
+    friend = localFriends[i];
     if (lookup[friend] != true)
     {
       lookup[friend] = true;
@@ -112,9 +114,9 @@ ptYou.FriendMerge = function(localFriends, globalFriends)
     }
   }
   
-  for (var i = 0, j = globalFriends.length; i < j; i++)
+  for (i = 0, j = globalFriends.length; i < j; i++)
   {
-    var friend = globalFriends[i];
+    friend = globalFriends[i];
     if (lookup[friend] != true)
     {
       lookup[friend] = true;
@@ -128,7 +130,7 @@ ptYou.FriendMerge = function(localFriends, globalFriends)
 ptYou.FriendSync = function(localFriends, globalFriends)
 {
   var newFriends = ptYou.FriendDiff(localFriends, globalFriends);
-  var oldFriends = ptYou.FriendDiff(globalFriends, localFriends);
+  // var oldFriends = ptYou.FriendDiff(globalFriends, localFriends);
   var allFriends = ptYou.FriendMerge(localFriends, globalFriends);
   
   var data = {};
