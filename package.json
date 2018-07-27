@@ -1,0 +1,35 @@
+{
+    "name": "ptYou",
+    "description": "This extension persists friends between test/live environments on RobertsSpaceIndustries.com",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dolkensp/ptYou.git"
+    },
+    "author": "/u/alluran (Peter Dolkens)",
+    "bugs": {
+        "url": "https://github.com/dolkensp/ptYou/issues"
+    },
+    "homepage": "https://github.com/dolkensp/ptYou#readme",
+    "dependencies": {
+        "jszip": "^3.1.5"
+    },
+    "devDependencies": {
+        "eslint": "^5.0.1"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true,
+            "es6": true,
+            "jquery": true
+        },
+        "extends": "eslint:recommended",
+        "parserOptions": {
+            "ecmaVersion": 2018
+        },
+        "globals": {
+            "Fuse": true,
+            "chrome": true
+        }
+    },
+    "eslintIgnore": [ "src/vendor/**/*.js", "*.min.js" ]
+}
