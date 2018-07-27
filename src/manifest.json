@@ -3,18 +3,20 @@
   "manifest_version": 2,
   "name": "ptYou - Star Citizen Contact Manager",
   "short_name": "ptYou",
-  "version": "0.02",
+  "version": "0.0.0.1",
   
   "author": "/u/alluran (Peter Dolkens)",
   
   "permissions": [ "https://robertsspaceindustries.com/*", "https://*.cloudimperiumgames.com/*", "storage", "unlimitedStorage" ],
   
   "icons": {
-    "48": "icons/icon_48.png",
     "128": "icons/icon_128.png"
   },
+  "browser_action": {
+    "default_icon": "icons/icon_128.png"
+  },
   "content_scripts": [{
-    "matches": ["https://robertsspaceindustries.com/*", "https://*.cloudimperiumgames.com/*" ],
+    "matches": ["https://robertsspaceindustries.com/*", "https://*.robertsspaceindustries.com/*", "https://*.cloudimperiumgames.com/*" ],
     "js": ["content_scripts/loader.js"],
     "run_at": "document_end"
   }],
