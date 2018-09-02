@@ -163,6 +163,7 @@ ptYou.Except = function(left, right)
 {
   var lookup = {};
   var result = [];
+  var i, j;
   
   for (i = 0, j = right.length; i < j; i++) lookup[right[i]] = true;
   
