@@ -205,7 +205,7 @@ ptYou.FriendFind = function(friend, callback)
     contentType: "text/plain",
     data: JSON.stringify({ community_id: null, text: friend, ignore_self: true }),
     success: function(result) {
-      var i, j;
+      var i;
       
       if (result.success && result.data.hits.total > 0) {
         for (i = 0; i < result.data.members.length; i++) {
