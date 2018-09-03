@@ -181,7 +181,7 @@ ptYou.FriendSync = function()
   var globalFriends = ptYou.Union(ptYou.global.friends, ptYou.global.contacts);
   var allFriends = ptYou.Union(localFriends, globalFriends);
   
-  ptYou.newFriends = ptYou.Except(allFriends, localFriends);
+  ptYou.newFriends = ptYou.Except(allFriends, ptYou.local.friends);
   
   var inboundRequests = ptYou.requests.filter(function(request) { return request.requesting_member_id != ptYou.member_id; }).map(function(request) { return request.members[0].nickname; })
   var outboundRequests = ptYou.requests.filter(function(request) { return request.requesting_member_id == ptYou.member_id; }).map(function(request) { return request.members[0].nickname; })
