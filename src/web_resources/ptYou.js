@@ -182,6 +182,7 @@ ptYou.FriendSync = function()
   var allFriends = ptYou.Union(localFriends, globalFriends);
   
   ptYou.newFriends = ptYou.Except(allFriends, ptYou.local.friends);
+  ptYou.newContacts = ptYou.Except(allFriends, ptYou.local.contacts);
   
   var inboundRequests = ptYou.requests.filter(function(request) { return request.requesting_member_id != ptYou.member_id; }).map(function(request) { return request.members[0].nickname; })
   var outboundRequests = ptYou.requests.filter(function(request) { return request.requesting_member_id == ptYou.member_id; }).map(function(request) { return request.members[0].nickname; })
@@ -191,7 +192,7 @@ ptYou.FriendSync = function()
   ptYou.newFriends = ptYou.Except(ptYou.newFriends, outboundRequests);
   ptYou.newFriends = ptYou.Except(ptYou.newFriends, inboundRequests);
   
-  console.log('Friends.Sync', { newFriends: ptYou.newFriends.length, newInvites: ptYou.newInvites.length });
+  console.log('Friends.Sync', { newFriends: ptYou.newFriends.length, newContacts: ptYou.newContacts.length, newInvites: ptYou.newInvites.length });
   
   ptYou.FriendAccept();
 }
@@ -225,7 +226,7 @@ ptYou.FriendAdd = function()
 {
   if (ptYou.newFriends.length == 0)
   {
-    ptYou.SaveState();
+    ptYou.ContactAdd();
   }
   else
   {
@@ -253,6 +254,31 @@ ptYou.FriendAdd = function()
           }
         });
       }
+    });
+  }
+}
+
+ptYou.ContactAdd = function()
+{
+  if (ptYou.newContacts.length == 0)
+  {
+    ptYou.SaveState();
+  }
+  else
+  {
+    var friend = ptYou.newContacts.pop();
+    
+    $.ajax({
+      url: '/api/contacts/add',
+      method: 'POST',
+      headers: ptYou.headers,
+      data: { nickname: friend },
+      success: function(result) { 
+        if (result.success) console.log('Contacts.Add', 'Added ' + friend);
+        else console.log('Contacts.Add', 'Skipped ' + friend, result.msg);
+        
+        ptYou.ContactAdd();
+      },
     });
   }
 }
