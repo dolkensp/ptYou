@@ -184,8 +184,8 @@ ptYou.FriendSync = function()
   ptYou.newFriends = ptYou.Except(allFriends, ptYou.local.friends);
   ptYou.newContacts = ptYou.Except(allFriends, ptYou.local.contacts);
   
-  var inboundRequests = ptYou.requests.filter(function(request) { return request.requesting_member_id != ptYou.member_id; }).map(function(request) { return request.members[0].nickname; })
-  var outboundRequests = ptYou.requests.filter(function(request) { return request.requesting_member_id == ptYou.member_id; }).map(function(request) { return request.members[0].nickname; })
+  var inboundRequests = ptYou.requests.filter(function(request) { return request != null && request.requesting_member_id != ptYou.member_id; }).map(function(request) { return request.members[0].nickname; })
+  var outboundRequests = ptYou.requests.filter(function(request) { return request != null && request.requesting_member_id == ptYou.member_id; }).map(function(request) { return request.members[0].nickname; })
   
   ptYou.newInvites = ptYou.Intersect(allFriends, inboundRequests);
   
